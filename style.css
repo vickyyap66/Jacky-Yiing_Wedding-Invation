@@ -46,7 +46,9 @@ main{max-width:620px;margin:auto;background:var(--paper);overflow:hidden;box-sha
   line-height: 1.5;
 
   text-shadow: 0 1px 5px rgba(0,0,0,.5);
+}
 
+.scroll-to-open {
   animation: scrollHint 2s ease-in-out infinite;
 }
 
@@ -57,7 +59,7 @@ main{max-width:620px;margin:auto;background:var(--paper);overflow:hidden;box-sha
   }
 
   50% {
-    transform: translateY(6px);
+    transform: translateY(4px);
     opacity: 1;
   }
 }
