@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#3c2b22" />
+  <meta name="description" content="Jacky & Ying Wedding Invitation — 25 October 2026" />
+  <title>Jacky ♥ Ying | Wedding Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="loading-screen" id="loading">
+    <div class="loading-heart">♥</div>
+    <div>Jacky & Ying</div>
+  </div>
+
+  <button class="music-btn" id="musicBtn" aria-label="Music">
+    <span>♪</span>
+  </button>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <img class="hero-photo" src="wedding-photo.png" alt="Jacky & Ying wedding photo" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-kicker">好久不见，我们婚礼见</p>
+        <div class="names">Jacky <span>♥</span> Ying</div>
+        <div class="double-happiness">囍</div>
+        <div class="hero-date">25 <i>/</i> 10</div>
+        <div class="hero-day">SUNDAY&nbsp; | &nbsp;10.00 AM</div>
+        <div class="divider">············ ♥ ············</div>
+        <div class="hero-location">14/15 Jalan Jambu Melaka 2<br>Jinjang Selatan</div>
+        <div class="scroll-hint"><span></span> SCROLL TO OPEN <span></span></div>
+      </div>
+    </section>
+
+    <!-- WELCOME -->
+    <section class="section intro reveal">
+      <div class="eyebrow">WE ARE GETTING MARRIED</div>
+      <h1>Jacky <span>♥</span> Ying</h1>
+      <p class="serif-large">从遇见，到相爱，<br>再到今天。</p>
+      <p class="body-copy">诚挚邀请您来见证我们人生中重要的一天，<br>与我们一起分享这份喜悦。</p>
+      <div class="mini-ornament">囍</div>
+    </section>
+
+    <!-- DATE -->
+    <section class="section date-section reveal">
+      <div class="eyebrow">SAVE THE DATE</div>
+      <div class="calendar-card">
+        <div class="calendar-month">OCTOBER</div>
+        <div class="calendar-day">25</div>
+        <div class="calendar-week">SUNDAY · 10:00 AM</div>
+        <div class="calendar-line"></div>
+        <div class="calendar-year">2026</div>
+      </div>
+      <div class="countdown" id="countdown">
+        <div><strong id="days">--</strong><small>DAYS</small></div>
+        <div><strong id="hours">--</strong><small>HOURS</small></div>
+        <div><strong id="minutes">--</strong><small>MINUTES</small></div>
+        <div><strong id="seconds">--</strong><small>SECONDS</small></div>
+      </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section class="section details-section reveal">
+      <div class="eyebrow">THE DAY</div>
+      <h2>Wedding Details</h2>
+      <div class="detail-list">
+        <div class="detail">
+          <div class="detail-icon">◷</div>
+          <div><small>DATE & TIME</small><p>25 October 2026<br>Sunday · 10:00 AM</p></div>
+        </div>
+        <div class="detail">
+          <div class="detail-icon">⌂</div>
+          <div><small>VENUE</small><p>14/15 Jalan Jambu Melaka 2<br>Jinjang Selatan</p></div>
+        </div>
+      </div>
+      <div class="map-buttons">
+        <a id="mapsBtn" class="outline-btn" target="_blank" rel="noopener">Google Maps</a>
+        <a id="wazeBtn" class="outline-btn" target="_blank" rel="noopener">Waze</a>
+      </div>
+    </section>
+
+    <!-- PHOTO -->
+    <section class="photo-break reveal">
+      <img src="wedding-photo.png" alt="Jacky & Ying" />
+      <div class="photo-caption">ONE LOVE · ONE LIFE · ONE BEAUTIFUL DAY</div>
+    </section>
+
+    <!-- MESSAGE -->
+    <section class="section message-section reveal">
+      <div class="eyebrow">A LITTLE NOTE</div>
+      <div class="quote-mark">“</div>
+      <p class="quote">有你，有家，<br>就是我们想要的幸福。</p>
+      <p class="body-copy">感谢一路上陪伴、见证与祝福我们的每一个人。<br>希望婚礼当天，能与你相见。</p>
+      <div class="signature">With love,<br><strong>Jacky & Ying</strong></div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="section rsvp-section reveal">
+      <div class="eyebrow">KINDLY RSVP</div>
+      <h2>期待与您相见</h2>
+      <p class="body-copy">请提前告诉我们您是否能够出席，<br>让我们为您预留座位。</p>
+
+      <div class="rsvp-card">
+        <label>
+          姓名
+          <input id="guestName" type="text" placeholder="请输入您的姓名" />
+        </label>
+        <label>
+          出席人数
+          <select id="guestCount">
+            <option value="1">1 位</option>
+            <option value="2">2 位</option>
+            <option value="3">3 位</option>
+            <option value="4">4 位</option>
+            <option value="5">5 位</option>
+            <option value="6">6 位</option>
+          </select>
+        </label>
+        <div class="rsvp-actions">
+          <button class="primary-btn" id="attendBtn">✓ 我会出席</button>
+          <button class="secondary-btn" id="declineBtn">无法出席</button>
+        </div>
+        <p class="rsvp-note">点击后将通过 WhatsApp 回复新人。</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="footer">
+      <div class="footer-double">囍</div>
+      <h2>See you on our<br>special day.</h2>
+      <p>25 · 10 · 2026</p>
+      <div class="footer-line"></div>
+      <small>JACKY & YING</small>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
