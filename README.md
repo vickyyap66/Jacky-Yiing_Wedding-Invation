@@ -1,4 +1,4 @@
-# Jacky & Ying Wedding Invitation
+# Jacky & Yiing Wedding Invitation
 
 手机优先的电子结婚请柬网页。
 
