@@ -67,28 +67,108 @@ function sendRSVP(attending) {
 document.getElementById("attendBtn").addEventListener("click", () => sendRSVP(true));
 document.getElementById("declineBtn").addEventListener("click", () => sendRSVP(false));
 
-// Music button is intentionally prepared for an optional audio file.
-// Put music.mp3 in this folder to enable it.
+// ===============================
+// Music
+// ===============================
+
 const musicBtn = document.getElementById("musicBtn");
+
 let audio = null;
 let musicReady = false;
-fetch("music.mp3", {method:"HEAD"}).then(r => {
-  if (r.ok) {
-    audio = new Audio("music.mp3");
-    audio.loop = true;
-    musicReady = true;
+let musicStarted = false;
+
+// 检查 music.mp3 是否存在
+fetch("music.mp3", { method: "HEAD" })
+  .then(response => {
+    if (response.ok) {
+      audio = new Audio("music.mp3");
+      audio.loop = true;
+      audio.preload = "auto";
+      musicReady = true;
+    }
+  })
+  .catch(() => {});
+
+
+// 播放音乐
+async function playMusic() {
+  if (!musicReady || !audio) return;
+
+  try {
+    await audio.play();
+
+    musicStarted = true;
+    musicBtn.innerHTML = "<span>Ⅱ</span>";
+    musicBtn.classList.add("playing");
+
+  } catch (error) {
+    console.log("Music playback was blocked.");
   }
-}).catch(() => {});
-musicBtn.addEventListener("click", async () => {
+}
+
+
+// 暂停音乐
+function pauseMusic() {
+  if (!audio) return;
+
+  audio.pause();
+
+  musicBtn.innerHTML = "<span>♪</span>";
+  musicBtn.classList.remove("playing");
+}
+
+
+// 点击音乐按钮：播放 / 暂停
+musicBtn.addEventListener("click", async (event) => {
+
+  event.stopPropagation();
+
   if (!musicReady) {
-    alert("music.mp3");
+    alert("请将 music.mp3 放在网站文件夹内。");
     return;
   }
+
   if (audio.paused) {
-    await audio.play();
-    musicBtn.innerHTML = "<span>Ⅱ</span>";
+    await playMusic();
   } else {
-    audio.pause();
-    musicBtn.innerHTML = "<span>♪</span>";
+    pauseMusic();
   }
 });
+
+
+// ===============================
+// Scroll to Open → 自动播放音乐
+// ===============================
+
+let openTriggered = false;
+
+function startMusicWhenOpen() {
+
+  if (openTriggered) return;
+
+  openTriggered = true;
+
+  if (musicReady) {
+    playMusic();
+  }
+}
+
+
+// 用户开始向下滑动
+window.addEventListener("scroll", () => {
+
+  if (window.scrollY > 30) {
+    startMusicWhenOpen();
+  }
+
+}, { passive: true });
+
+
+// 点击首页也可以触发音乐
+const hero = document.querySelector(".hero-image");
+
+if (hero) {
+  hero.addEventListener("click", () => {
+    startMusicWhenOpen();
+  });
+}
