@@ -1,5 +1,5 @@
 // ===============================
-// JACKY & YING WEDDING INVITATION
+// JACKY & YIING WEDDING INVITATION
 // Edit the settings below if needed.
 // ===============================
 const WEDDING_DATE = "2026-10-25T10:00:00+08:00";
@@ -61,7 +61,7 @@ function sendRSVP(attending) {
     return;
   }
   const status = attending ? "会出席" : "无法出席";
-  const text = `Jacky & Ying Wedding RSVP%0A%0A姓名：${encodeURIComponent(name)}%0A人数：${count} 位%0A回复：${encodeURIComponent(status)}`;
+  const text = `Jacky & Yiing Wedding RSVP%0A%0A姓名：${encodeURIComponent(name)}%0A人数：${count} 位%0A回复：${encodeURIComponent(status)}`;
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
 }
 document.getElementById("attendBtn").addEventListener("click", () => sendRSVP(true));
