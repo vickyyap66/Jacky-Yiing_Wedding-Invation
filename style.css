@@ -30,7 +30,7 @@ main{max-width:620px;margin:auto;background:var(--paper);overflow:hidden;box-sha
 
 .scroll-to-open {
   position: absolute;
-  bottom: 30px;
+  bottom: 90px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -49,6 +49,12 @@ main{max-width:620px;margin:auto;background:var(--paper);overflow:hidden;box-sha
   }
   50% {
     transform: translate(-50%, -8px);
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-text {
+    bottom: 100px;
   }
 }
 
