@@ -73,27 +73,16 @@ document.getElementById("declineBtn").addEventListener("click", () => sendRSVP(f
 
 const musicBtn = document.getElementById("musicBtn");
 
-let audio = null;
-let musicReady = false;
-let musicStarted = false;
+// 直接加载音乐，不使用 fetch HEAD 检查
+const audio = new Audio("music.mp3");
+audio.loop = true;
+audio.preload = "auto";
 
-// 检查 music.mp3 是否存在
-fetch("music.mp3", { method: "HEAD" })
-  .then(response => {
-    if (response.ok) {
-      audio = new Audio("music.mp3");
-      audio.loop = true;
-      audio.preload = "auto";
-      musicReady = true;
-    }
-  })
-  .catch(() => {});
+let musicStarted = false;
 
 
 // 播放音乐
 async function playMusic() {
-  if (!musicReady || !audio) return;
-
   try {
     await audio.play();
 
@@ -102,15 +91,13 @@ async function playMusic() {
     musicBtn.classList.add("playing");
 
   } catch (error) {
-    console.log("Music playback was blocked.");
+    console.log("Music playback blocked:", error);
   }
 }
 
 
 // 暂停音乐
 function pauseMusic() {
-  if (!audio) return;
-
   audio.pause();
 
   musicBtn.innerHTML = "<span>♪</span>";
@@ -118,26 +105,25 @@ function pauseMusic() {
 }
 
 
-// 点击音乐按钮：播放 / 暂停
-musicBtn.addEventListener("click", async (event) => {
+// ===============================
+// 音乐按钮：播放 / 暂停
+// ===============================
+
+musicBtn.addEventListener("click", (event) => {
 
   event.stopPropagation();
 
-  if (!musicReady) {
-    alert("请将 music.mp3 放在网站文件夹内。");
-    return;
-  }
-
   if (audio.paused) {
-    await playMusic();
+    playMusic();
   } else {
     pauseMusic();
   }
+
 });
 
 
 // ===============================
-// Scroll to Open → 自动播放音乐
+// SCROLL TO OPEN → 自动播放
 // ===============================
 
 let openTriggered = false;
@@ -148,27 +134,27 @@ function startMusicWhenOpen() {
 
   openTriggered = true;
 
-  if (musicReady) {
-    playMusic();
-  }
+  playMusic();
 }
 
 
-// 用户开始向下滑动
+// 监听第一次向下滑动
 window.addEventListener("scroll", () => {
 
-  if (window.scrollY > 30) {
+  if (window.scrollY > 10) {
     startMusicWhenOpen();
   }
 
 }, { passive: true });
 
 
-// 点击首页也可以触发音乐
+// 点击首页也触发
 const hero = document.querySelector(".hero-image");
 
 if (hero) {
+
   hero.addEventListener("click", () => {
     startMusicWhenOpen();
   });
+
 }
