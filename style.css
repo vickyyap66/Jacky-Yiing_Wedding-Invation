@@ -121,6 +121,20 @@ h2{font-size:40px;margin-bottom:22px}
 .footer-line{width:45px;height:1px;background:#b89978;margin:25px auto}
 .footer small{font-family:"Playfair Display",serif;letter-spacing:3px;font-size:8px;opacity:.65}
 .music-btn{position:fixed;z-index:10;right:max(18px,calc((100vw - 620px)/2 + 18px));top:18px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.55);background:rgba(45,32,24,.42);color:white;backdrop-filter:blur(5px);font-size:18px;display:flex;align-items:center;justify-content:center}
+.music-btn.playing span {
+  animation: musicRotate 3s linear infinite;
+}
+
+@keyframes musicRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .loading-screen{position:fixed;z-index:100;inset:0;background:var(--brown);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-family:"Cormorant Garamond",serif;font-size:18px;letter-spacing:2px;transition:opacity .8s,visibility .8s}
 .loading-heart{font-size:38px;color:#bd351b}
 .loading-screen.hide{opacity:0;visibility:hidden}
