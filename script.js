@@ -7,7 +7,7 @@ const VENUE = "14/15 Jalan Jambu Melaka 2, Jinjang Selatan, Kuala Lumpur";
 
 // Add the couple's WhatsApp number here, e.g. "60123456789"
 // Leave blank if you want the RSVP buttons disabled.
-const WHATSAPP_NUMBER = "";
+const WHATSAPP_NUMBER = "+6014-6449336";
 
 const loading = document.getElementById("loading");
 window.addEventListener("load", () => {
