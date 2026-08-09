@@ -81,7 +81,7 @@ fetch("music.mp3", {method:"HEAD"}).then(r => {
 }).catch(() => {});
 musicBtn.addEventListener("click", async () => {
   if (!musicReady) {
-    alert("如需背景音乐，请把音乐文件命名为 music.mp3 放进网站文件夹。");
+    alert("music.mp3");
     return;
   }
   if (audio.paused) {
