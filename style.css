@@ -30,7 +30,7 @@ main{max-width:620px;margin:auto;background:var(--paper);overflow:hidden;box-sha
 
 .scroll-to-open {
   position: absolute;
-  bottom: 60px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
