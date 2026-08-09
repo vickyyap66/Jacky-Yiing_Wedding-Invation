@@ -49,7 +49,7 @@ main{max-width:620px;margin:auto;background:var(--paper);overflow:hidden;box-sha
   }
 
   50% {
-    transform: translateY(-6px);
+    transform: translateY(6px);
   }
 }
 
