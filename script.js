@@ -57,7 +57,7 @@ function sendRSVP(attending) {
     return;
   }
   if (!WHATSAPP_NUMBER) {
-    alert("请在 script.js 中填写新人的 WhatsApp 号码，即可启用 RSVP。");
+    alert("+6014-6449336");
     return;
   }
   const status = attending ? "会出席" : "无法出席";
