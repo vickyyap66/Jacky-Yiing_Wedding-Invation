@@ -16,8 +16,9 @@ body{
 }
 main{max-width:620px;margin:auto;background:var(--paper);overflow:hidden;box-shadow:0 0 50px rgba(0,0,0,.2)}
 .hero-image {
+  positive: relative;
   width: 100%;
-scline-height: 0;
+  line-height: 0;
   background: #000;
 }
 
@@ -26,8 +27,47 @@ scline-height: 0;
   width: 100%;
   height: auto;
 }
-.scroll-hint{font-family:"Playfair Display",serif;font-size:9px;letter-spacing:2px;margin-top:auto;opacity:.8;display:flex;align-items:center;gap:10px}
-.scroll-hint span{display:block;width:22px;height:1px;background:rgba(255,255,255,.65)}
+
+.scroll-to-open {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 9px;
+  leter-spacing: 2px;
+  line-height: 1.5;
+
+  text-shadow: 0 1px 5px rgba(0,0,0,.5);
+
+  animation: scrollHint 2s ease-in-out infinite;
+}
+
+@keyframes scrollHint {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: .65;
+  }
+
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+.scroll-to-open span {
+  width: 22px;
+  height: 1px;
+  background: rgba(255,255,255,.8);
+}
+
 .section{padding:78px 28px;text-align:center;background:var(--paper)}
 .eyebrow{font-family:"Playfair Display",serif;font-size:11px;letter-spacing:3px;color:var(--gold);margin-bottom:20px}
 h1,h2{font-family:"Cormorant Garamond",serif;font-weight:500;margin:0;color:var(--brown)}
