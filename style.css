@@ -116,9 +116,9 @@ h2{font-size:40px;margin-bottom:22px}
 .photo-caption{
   position:absolute;
   z-index:2;
-  bottom:25px;
-  left:20px;
-  right:20px;
+  bottom:23px;
+  left:0px;
+  right:0px;
 
   display:flex;
   align-items:center;
