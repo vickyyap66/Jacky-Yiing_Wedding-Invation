@@ -148,13 +148,30 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 
 
-// 点击首页也触发
+// ===============================
+// 首页点击
+// → 自动播放音乐
+// → 自动滑到 Welcome
+// ===============================
+
 const hero = document.querySelector(".hero-image");
+const welcomeSection = document.getElementById("welcome");
 
 if (hero) {
 
   hero.addEventListener("click", () => {
+
+    // 开始播放音乐
     startMusicWhenOpen();
+
+    // 滑到 Welcome 第二页
+    if (welcomeSection) {
+      welcomeSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+
   });
 
 }
