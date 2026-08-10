@@ -113,29 +113,32 @@ h2{font-size:40px;margin-bottom:22px}
   object-position:center center;
 }
 
-.photo-break:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    180deg,
-    rgba(30,20,14,.03),
-    rgba(30,20,14,.20)
-  );
-  pointer-events:none;
-}
-
 .photo-caption{
   position:absolute;
   z-index:2;
-  bottom:30px;
+  bottom:25px;
   left:20px;
   right:20px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  min-height:42px;
+  padding:10px 20px;
+
+  color:#fff;
   text-align:center;
-  color:white;
+
   font-family:"Playfair Display",serif;
   font-size:9px;
   letter-spacing:3px;
+
+  background:rgba(45,32,24,.35);
+  border:1px solid rgba(255,255,255,.25);
+
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
 }
 .message-section{background:#eee4d8}
 .quote-mark{font-family:Georgia,serif;font-size:70px;line-height:.5;color:var(--gold);margin:30px 0 5px}
