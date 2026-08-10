@@ -7,7 +7,7 @@ const VENUE = "14/15 Jalan Jambu Melaka 2, Jinjang Selatan, Kuala Lumpur";
 
 // Add the couple's WhatsApp number here, e.g. "60123456789"
 // Leave blank if you want the RSVP buttons disabled.
-const WHATSAPP_NUMBER = "+6014-6449336";
+const WHATSAPP_NUMBER = "60146449336";
 
 const loading = document.getElementById("loading");
 window.addEventListener("load", () => {
@@ -47,25 +47,61 @@ document.getElementById("mapsBtn").href =
 document.getElementById("wazeBtn").href =
   `https://www.waze.com/ul?q=${encodedVenue}&navigate=yes`;
 
-// RSVP
+// ===============================
+// RSVP → WhatsApp
+// ===============================
+
 function sendRSVP(attending) {
+
   const name = document.getElementById("guestName").value.trim();
   const count = document.getElementById("guestCount").value;
+
+  // 检查姓名
   if (!name) {
     document.getElementById("guestName").focus();
     alert("请先输入您的姓名。");
     return;
   }
+
+  // WhatsApp号码
   if (!WHATSAPP_NUMBER) {
-    alert("+6014-6449336");
+    alert("60146449336");
     return;
   }
+
+  // 根据按钮选择出席状态
   const status = attending ? "会出席" : "无法出席";
-  const text = `Jacky & Yiing Wedding RSVP%0A%0A姓名：${encodeURIComponent(name)}%0A人数：${count} 位%0A回复：${encodeURIComponent(status)}`;
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
+
+  // 自动填写到 WhatsApp 对话框的固定内容
+  const message =
+`Jacky & Yiing Wedding RSVP
+
+姓名：${name}
+人数：${count} 位
+回复：${status}
+
+谢谢！`;
+
+  // 编码讯息
+  const encodedMessage = encodeURIComponent(message);
+
+  // 打开 WhatsApp，并自动把讯息放进输入框
+  const whatsappURL =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+  window.open(whatsappURL, "_blank");
 }
-document.getElementById("attendBtn").addEventListener("click", () => sendRSVP(true));
-document.getElementById("declineBtn").addEventListener("click", () => sendRSVP(false));
+
+
+// 我会出席
+document.getElementById("attendBtn").addEventListener("click", () => {
+  sendRSVP(true);
+});
+
+// 无法出席
+document.getElementById("declineBtn").addEventListener("click", () => {
+  sendRSVP(false);
+});
 
 // ===============================
 // Music
