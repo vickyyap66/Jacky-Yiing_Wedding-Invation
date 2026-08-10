@@ -119,8 +119,8 @@ h2{font-size:40px;margin-bottom:22px}
   inset:0;
   background:linear-gradient(
     180deg,
-    rgba(30,20,14,.12),
-    rgba(30,20,14,.7)
+    rgba(30,20,14,.03),
+    rgba(30,20,14,.20)
   );
   pointer-events:none;
 }
