@@ -211,3 +211,34 @@ if (hero) {
   });
 
 }
+
+// ===============================
+// Wedding Video
+// 滑到视频页面 → 自动播放
+// 离开视频页面 → 自动暂停
+// ===============================
+
+const weddingVideo = document.querySelector(".wedding-video");
+
+if (weddingVideo) {
+
+  const videoObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+        weddingVideo.play().catch(error => {
+          console.log("Video playback blocked:", error);
+        });
+      } else {
+        weddingVideo.pause();
+      }
+
+    });
+
+  }, {
+    threshold: 0.4
+  });
+
+  videoObserver.observe(weddingVideo);
+}
