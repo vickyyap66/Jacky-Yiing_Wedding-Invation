@@ -116,7 +116,7 @@ h2{font-size:40px;margin-bottom:22px}
 .photo-caption{
   position:absolute;
   z-index:2;
-  bottom:23px;
+  bottom:22px;
   left:0px;
   right:0px;
 
@@ -131,7 +131,7 @@ h2{font-size:40px;margin-bottom:22px}
   text-align:center;
 
   font-family:"Playfair Display",serif;
-  font-size:9px;
+  font-size:11px;
   letter-spacing:3px;
 
   background:rgba(45,32,24,.35);
