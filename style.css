@@ -28,7 +28,7 @@ main{max-width:620px;margin:auto;background:var(--paper);overflow:hidden;box-sha
   height: auto;
 }
 
-.scroll-to-open {
+.tap-to-open {
   position: absolute;
   bottom: 40px;
   left: 50%;
@@ -53,12 +53,12 @@ main{max-width:620px;margin:auto;background:var(--paper);overflow:hidden;box-sha
 }
 
 @media (max-width: 768px) {
-  .scroll-text {
+  .tap-text {
     bottom: 100px;
   }
 }
 
-.scroll-to-open span {
+.tap-to-open span {
   width: 22px;
   height: 1px;
   background: rgba(255,255,255,.8);
